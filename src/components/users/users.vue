@@ -1,6 +1,8 @@
-<!--  -->
+<!-- 用户列表 -->
 <template>
-<h1>用户</h1>
+<div class=''>
+  <h1>用户</h1>
+</div>
 </template>
 
 <script>
