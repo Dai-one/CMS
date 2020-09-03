@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <h1>主页</h1>
+<h1>用户</h1>
 </template>
 
 <script>
