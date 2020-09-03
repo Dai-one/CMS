@@ -20,10 +20,8 @@ instance.interceptors.request.use(function (config) {
 // 响应拦截器：在响应到达之前，先进行数据过滤，错误处理
 instance.interceptors.response.use(function (response) {
     if(response.status===200){
-        if(response.status&&response.data.success){
-            return response.data.data
-        }else{
-            alert('网络异常请稍后重试')
+        if(response.status){
+            return response.data
         }
     }
   }, function (error) {

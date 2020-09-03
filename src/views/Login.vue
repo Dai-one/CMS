@@ -24,28 +24,15 @@ export default {
   methods: {
     //登录请求
     async handleLogin() {
-      const res = await this.$http.Login(this.formdata);
-      if (res.token) {
+      const res = await this.$https.Login(this.formdata);
+      if (!res.err) {
         //登录成功，保存token值
-        localStorage.setItem("token", res.token);
-        this.successTip();
+        this.$message.success(res.msg);
+        localStorage.setItem("token", res.data.token);
         this.$router.push({name:'Home'})
+      }else{
+        this.$message.error(res.msg)
       }
-    },
-    successTip() {
-      this.$message({
-        message: "恭喜你，登陆成功",
-        type: "success",
-        duration: 2000,
-      });
-    },
-    errorTip() {
-      this.$message({
-        showClose: true,
-        message: "用户名或密码错误！",
-        type: "error",
-        duration: 2000,
-      });
     },
   },
   created() {},
